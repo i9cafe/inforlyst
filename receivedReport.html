@@ -1,0 +1,127 @@
+<html lang="ko" ng-app="inforlyst">
+
+<head>
+  <meta charset="utf-8" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+  <title> Inforlyst </title>
+  <script src="angular.js"></script>
+  <script src="angular-route.js"></script>
+  <script src="ui-bootstrap-tpls-0.10.0.min.js"></script>
+  <script src="app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="slick.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="style.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="slick.css" />
+  <link rel="stylesheet" type="text/css" href="slick-theme.css" />
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" type="text/css" href="input-group.css" />
+
+
+</head>
+
+<body ng-controller="MainController as vm">
+
+  <div class="topnav" style="position:fixed; width:100%; left:70; z-index:100;">
+    <span id="openNav" class="openbtn" ng-click="vm.openNav()" ng-dblclick="false" style="height: 73px; position:fixed; left:0;"> &#9776; </span>
+    <div style="height: 73px; display:flex; justify-content:center;">
+      <div id="search-group" class="col-xs-5" style="margin-left:-8%;">
+        <div class="input-group search-container">
+          <input type="text" class="form-control" placeholder="Search.." name="search" ng-model="vm.searchWord">
+          <div class="input-group-append">
+            <span class="input-group-text" ng-click="vm.moveTosearchResult()" ng-dblclick="false"><i class="fa fa-search iconsFlap"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none; z-index:101;" id="mySidebar">
+    <button class="w3-bar-item w3-button w3-large" style="height:73px; line-height:57px;" ng-click="vm.closeNav()" ng-dblclick="false">Close <span style="float:right;">&times;</span></button>
+    <a href="main.html" class="w3-bar-item w3-button" style="height:73px; line-height:57px;">Link 1 - Home</a>
+    <a href="#" class="w3-bar-item w3-button" style="height:73px; line-height:57px;">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button" style="height:73px; line-height:57px;">Link 3</a>
+    <a href="index.html" class="w3-bar-item w3-button" style="height:73px; line-height:57px;"><i class="fa fw fa-sign-out" style="margin-right:3%;"></i> Logout </a>
+  </div>
+
+  <div id="main">
+
+    <div style="height:73px; background:none;">
+    </div>
+
+    <div style="height:150px; border: 1px solid white;">
+      <div class="col-xs-9">
+        <div class="customer-name-box">
+          <b> Received Report </b>
+        </div>
+      </div>
+    </div>
+
+    <!-- slick Cards slider -->
+
+    <div style="height:50px; margin-bottom:5px; border:1px solid lightgray;">
+      <div class="slick-title" style="margin-left:2%;"> Received Report </div>
+    </div>
+
+    <div class="slick-container">
+      <div class="slick-items">
+
+        <div class="new" ng-click="vm.openReportModal()" ng-dblclick="false">
+          <div class="slick-title">Report 1</div>
+          <div class="slick-text">
+            Lorem ipsum is dummy text used in laying out print, graphic or web designs.
+          </div>
+        </div>
+
+        <div class="new" ng-click="vm.openReportModal()" ng-dblclick="false">
+          <div class="slick-title">Report 2</div>
+          <div class="slick-text">
+            Lorem ipsum is dummy text used in laying out print, graphic or web designs.
+          </div>
+        </div>
+
+        <div class="new" ng-click="vm.openReportModal()" ng-dblclick="false">
+          <div class="slick-title">Report 3</div>
+          <div class="slick-text">
+            Lorem ipsum is dummy text used in laying out print, graphic or web designs.
+          </div>
+        </div>
+
+        <div class="new" ng-click="vm.openReportModal()" ng-dblclick="false">
+          <div class="slick-title">Report 4</div>
+          <div class="slick-text">
+            Lorem ipsum is dummy text used in laying out print, graphic or web designs.
+          </div>
+        </div>
+
+        <div class="new" ng-click="vm.openReportModal()" ng-dblclick="false">
+          <div class="slick-title">Report 5</div>
+          <div class="slick-text">
+            Lorem ipsum is dummy text used in laying out print, graphic or web designs.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="border-top:1px solid lightgray;">
+    </div>
+
+
+    <div style="height:1000px; background:gray; opacity:0.1;">
+
+
+    </div>
+
+
+  </div>
+
+
+
+
+
+</body>
+
+</html>

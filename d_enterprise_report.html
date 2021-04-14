@@ -1,0 +1,291 @@
+<html lang="ko" ng-app="inforlyst">
+
+<head>
+  <meta charset="utf-8" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+  <title> Inforlyst </title>
+  <script src="angular.js"></script>
+  <script src="angular-route.js"></script>
+  <script src="ui-bootstrap-tpls-0.10.0.min.js"></script>
+  <script src="app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="slick.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="style.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="slick.css" />
+  <link rel="stylesheet" type="text/css" href="slick-theme.css" />
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" type="text/css" href="input-group.css" />
+
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+
+</head>
+
+<body ng-controller="CustomerController as vm">
+
+  <div class="topnav" style="position:fixed; width:100%; left:70; z-index:100;">
+    <span id="openNav" class="openbtn" ng-click="vm.openNav()" ng-dblclick="false" style="height: 73px; position:fixed; left:0;"> &#9776; </span>
+    <div style="height: 73px; display:flex; justify-content:center;">
+      <div id="search-group" class="col-xs-5" style="margin-left:-8%;">
+        <div class="input-group search-container">
+          <input type="text" class="form-control" placeholder="Search.." name="search">
+          <div class="input-group-append">
+            <span class="input-group-text" ng-click="vm.moveTosearchResult()" ng-dblclick="false"><i class="fa fa-search iconsFlap"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none; z-index:101;" id="mySidebar">
+    <button class="w3-bar-item w3-button w3-large" style="height:73px; line-height:57px;" ng-click="vm.closeNav()" ng-dblclick="false">Close <span style="float:right;">&times;</span></button>
+    <a href="main.html" class="w3-bar-item w3-button" style="height:73px; line-height:57px;">Link 1 - Home</a>
+    <a href="#" class="w3-bar-item w3-button" style="height:73px; line-height:57px;">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button" style="height:73px; line-height:57px;">Link 3</a>
+    <a href="index.html" class="w3-bar-item w3-button" style="height:73px; line-height:57px;"><i class="fa fw fa-sign-out" style="margin-right:3%;"></i> Logout </a>
+  </div>
+
+  <div id="main">
+
+    <div style="height:73px; background:none;">
+    </div>
+
+    <div style="height:4000px; border: 1px solid white;">
+
+      <div class="col-xs-9">
+        <div class="customer-name-box">
+          <b> Enterprise Report </b>
+        </div>
+      </div>
+
+      <div class="col-xs-4">
+
+        <div style="height:20px;">
+
+        </div>
+
+        <!-- <div>
+          <div class="customer-info-box">
+            <div class="interests-title"> Interests </div>
+          </div>
+          <div class="customer-info-box">
+            <div class="interests-title"> Key Word </div>
+          </div>
+          <div class="customer-info-box">
+            <div class="interests-title"> Category </div>
+          </div>
+          <div class="customer-info-box">
+            <div class="interests-title"> Country </div>
+          </div>
+          <div class="customer-info-box">
+            <div class="interests-title"> Language </div>
+          </div>
+
+        </div> -->
+
+      </div>
+
+      <div class="col-xs-12" style="margin-top:0px;">
+        <!-- write code here -->
+        <div style="margin-top:3em; margin-bottom:5em;">
+          <h2><b> Company name </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:100px;" disabled> 케이비아이동국실업(주) </textarea>
+        </div>
+
+        <div style="margin-top:3em; margin-bottom:5em;">
+          <h2><b> 기업 종속 산업 및 핵심 제품/서비스 </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:100px;" disabled> 자동차 부품업(자동차용 플라스틱 제품 공급 C/PAD Main Core, Console, Glove Box 등) </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 기업 시가총액 </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:100px;" disabled> (기준일 2020-12-16) 462억 </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 기업 설립일 및 설립 국가 </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:100px;" disabled> 대한민국, 1955년 12월 29일 </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 기업 상장 지수 </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:100px;" disabled> 코스피 </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> Balance sheet 첨부(필수) </b></h2>
+          <div style="resize:none; overflow:auto; width:100%; height:100px; background:#efefef4d; padding: 2px 0px 0px 2px; border: 1px solid rgba(118, 118, 118, 0.3);" disabled>
+            <a href="http://dart.fss.or.kr/dsaf001/main.do?rcpNo=20190329000883" style="margin-left:10px;">http://dart.fss.or.kr/dsaf001/main.do?rcpNo=20190329000883</a> (분기 혹은 연간)
+          </div>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 재무제표 기본적인 분석 </b></h2>
+          <table>
+            <tr>
+              <th>주요 정보</th>
+              <th>2018</th>
+              <th>2017</th>
+            </tr>
+            <tr>
+              <td>자산/부채 비율</td>
+              <td>68.55%</td>
+              <td>66.84%</td>
+            </tr>
+            <tr>
+              <td>유동성</td>
+              <td>59.7%</td>
+              <td>61.18%</td>
+            </tr>
+            <tr>
+              <td>매출성장률</td>
+              <td>+8.13%</td>
+              <td>-3.83%</td>
+            </tr>
+            <tr>
+              <td>영업이익률</td>
+              <td>(1.87%)(손실)</td>
+              <td>(6.10%)(손실)</td>
+            </tr>
+            <tr>
+              <td>ROE</td>
+              <td>(5.60%)</td>
+              <td>(22.01%)</td>
+            </tr>
+            <tr>
+              <td>유동자산에서 최대 비중 항목</td>
+              <td>매출채권(43.32%)</td>
+              <td>매출채권(44.72%)</td>
+            </tr>
+            <tr>
+              <td>비 유동자산에서 최대 비중 항목</td>
+              <td>유형자산(76.17%)</td>
+              <td>유형자산(76.59%)</td>
+            </tr>
+            <tr>
+              <td>유동부채에서 최대 비중 항목</td>
+              <td>매입채무(42.34%)</td>
+              <td>단기차입금(46.63%)</td>
+            </tr>
+            <tr>
+              <td>비 유동부채에서 최대 비중 항목</td>
+              <td>장기차입금(42.04%)</td>
+              <td>장기차입금(35.28%)</td>
+            </tr>
+            <tr>
+              <td>영업현금흐름/매출</td>
+              <td>7.79%</td>
+              <td>11.85%</td>
+            </tr>
+          </table>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 재무제표 상세 설명 </b></h2>
+          <table>
+            <tr>
+              <td>자산/부채 비율</td>
+              <td>전년 대비 상승한 이유는 선수금이 증가해서입니다.</td>
+            </tr>
+            <tr>
+              <td>유동성</td>
+              <td>유동부채 중 선수금이 증가하며 현금은 감소했습니다.</td>
+            </tr>
+            <tr>
+              <td>매출성장률</td>
+              <td>국내 매출은 11% 이상 증가했으나 해외 판매가 감소</td>
+            </tr>
+            <tr>
+              <td>영업이익률</td>
+              <td>원자재 가격이 상승하면서 매출원가 상승이 주요 원인입니다.</td>
+            </tr>
+            <tr>
+              <td>ROE</td>
+              <td>자본은 감자를 통해 감소했고 무형자산 손상에 의해 기타비용이 증가하면서 당기순이익이 마이너스를 기록했습니다.</td>
+            </tr>
+            <tr>
+              <td>영업현금흐름/매출</td>
+              <td>영업을 통한 현금흐름은 매출채권이 증가하고 매입채무는 감소하면서 전기 대비 하락하게 됐습니다. </td>
+            </tr>
+          </table>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 주요 뉴스 사항 첨부(최소 1개 필수) </b></h2>
+          <div style="resize:none; overflow:auto; width:100%; height:200px; background:#efefef4d; padding: 2px 0px 0px 2px; border: 1px solid rgba(118, 118, 118, 0.3);" disabled>
+            Citation 등 copyright 문제 피하기 위해 형식도 우리가 제공<br />
+            미중 무역전쟁(트럼프 중국 기업 수입에 관세를 매기다)<br />
+            사이트: <a href="https://www.bbc.com/korean/international-44733740">https://www.bbc.com/korean/international-44733740</a>(형식은 우리가 만들어야 됨)<br /><br />
+
+            동사는 자동차 부품회사이기에 경기 상황에 민감하게 반응하는 기업입니다.<br />
+            그러므로 2018년도 경제 구조에 막대한 변화를 불러일으킨 미.중 무역전쟁은 동사의 경영활동에 심한 타격을 입혔고 앞으로도 이러한 추세는 장기화될 것으로 예상됩니다.<br />
+
+          </div>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 부가설명(최소 2개의 문단) </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:100px;" disabled> (예시라서 내용보다는 구조를 보시면 됩니다) </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 미.중 무역전쟁에 의해 자동차 부품 산업은 피해 </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:200px;"
+            disabled> (제목 필수 문단 작성하기 전에 1 문장으로 요약 필수. 최소 2개의 문단을 작성하도록 만들다)
+2018년에 케이비아이동국실업㈜는 거시변수에 의해 심각한 경영상 타격을 입었으며 이는 미.중 무역전쟁에 의해 발생한 상황입니다. 미국이 중국 부품들에 관세를 부과하면서 중국 부품들의 가격경쟁력이 하락할 수 있다고 생각하나 이 상황은 긍정적으로만 볼 수는 없습니다. 그 이유는, 이로 인해 미국 내에 있는 제품들의 가격이 상승하게 될 것이고 미국에서 전반적인 수요가 감소할 수 있기 때문입니다. 동사의 매출 중 69% 이상은 해외로 수출하며 발생하기에 외국에서의 수요 환경이 매우 중요합니다. 당사의 제품이 관세에 의해 중국 제품들에 비해 가격 경쟁력을 보유하고 있다 하더라도 대부분의 차량용 부품 가격이 상승하면서 완성차의 비용은 증가하게 되고 이로 인해 소비자들의 가격 부담은 높아질 것입니다. 또한 미.중 무역전쟁이 글로벌 무역환경을 악화시켜 가격 인상에 따른 수요 감소와 더불어 무역 감소에 의해서도 총수요가 감소했습니다. 이와 같은 거시적인 환경에 의해 동사의 실적은 악화될 수 밖에 없었습니다. 외부 변수는 기업이 대응하는 데에 한계가 있기 때문에 저는 더 정확히 기업을 평가하기 위해 내부적인 기업 구조 및 자산 구조 조정을 통해 외부 변수를 대응하는 방식에 대해 깊이 분석해봤습니다. </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 부채 비중은 증가 그러나 차입금은 오히려 감소 </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:200px;"
+            disabled> 기업의 부채/자산 비율이 증가했다는 점을 위에 나와있는 표를 통해 알 수 있지만 제가 세부적으로 확인 결과, 차입금은 오히려 감소했다는 것을 알게 됐고 부채 비율이 증가한 이유는 선수금이 300% 이상 증가하며 매입채무가 증가했기 때문입니다. 즉 경영 환경이 어려워진 것을 대응한 방식은 우선 영업활동을 통해 벌어들인 수입으로 차입금을 줄이며 이자부담을 감소시키려는 것이었습니다. 특히 이 시기에 미국 중앙은행이 긴축적인 통화정책을 발표했다는 것을 고려한다면 정확한 판단이라는 것을 알 수 있습니다. 또한 단기 및 중기 금융자산을 매도하며 자금을 마련해서 추가적으로 차입금을 줄이려 노력했습니다. 물론 이로 인해 자산에 대한 투자는 하락할 수 밖에 없었지만 긍정적으로 볼 수 있는 점은 기업의 연구비가 2018년에도 증가했다는(전년 대비 +9.62%) 것입니다. 즉 장기적인 성장을 위해서는 꾸준히 아낌없이 지출하고 있다는 것이고 현재 수익률 관리를 위해 기업 내 구조조정을 진행하고 있다는 것입니다. 동사의 비용 구조를 보면 인건비를 감축했다는 것을 알 수 있으며 광고비도 하락했습니다. 그러나 여기서 중요한 점은 수익성 관리를 위해 구조조정이 효과적으로 진행되고 있느냐입니다. 대손비용은 전년 대비 +293.76% 이상 상승하게 됐고(물론 전체 비용에서 차지하는 비중이 미미한 수준이나 이 점도 수익률 악화에 기여했습니다) 광고비를 감축했다는 것은 그만큼 단기적인 성장률을 포기하고 있다는 것입니다. 궁극적으로, 기업의 2018년도 이익률을 보면 구조조정을 했음에도 불구하고 손실을 기록했습니다. 물론 전년에 비해 손실의 폭은 줄일 수 있었으나 지속적으로 손실을 기록한다면 기업의 경쟁력은 악화될 수 밖에 없습니다. 손실을 계속 기록하면 결국 투자는 감소할 수 밖에 없고 이는 동사의 경쟁력을 약화시킬 것이기 때문입니다. </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 종합적인 생각 </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:200px;"
+            disabled> 미.중 무역전쟁은 단기적으로 끝날 것으로 보이지는 않으며 많은 기업들은 이러한 환경에서 적응해야 될 것 같습니다. 예를 들어 완성차 수요가 가격이 인상됐음에도 불구하고 지속적으로 상승하는 기업에 납품을 하는 방식 혹은 미국 외 국가로 수출하는 방식을 택할 수 있습니다. 그러나 동사는 애초에 수익성부터 신경 써야 될 것으로 보이며 손실을 기록한다는 것은 새로운 전략을 펼치는 데 한계가 있다는 것입니다. 그러므로 개인적으로, 추가적인 부채의 차입을 통한 성장을 만드는 방식 혹은 유상증자가 예상되기에 케이비아이동국실업㈜는 좋은 종목을 보이지 않아 보입니다. </textarea>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div style="border-top:1px solid lightgray;">
+    </div>
+
+
+    <div style="height:1000px; background:gray; opacity:0.1;">
+
+
+    </div>
+
+
+  </div>
+
+
+
+
+
+</body>
+
+</html>

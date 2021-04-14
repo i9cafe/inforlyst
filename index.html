@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko" ng-app="inforlyst">
+
+<head>
+  <meta charset="utf-8" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+  <title> Inforlyst </title>
+  <script src="angular.js"></script>
+  <script src="angular-route.js"></script>
+  <script src="ui-bootstrap-tpls-0.10.0.min.js"></script>
+  <script src="app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="slick.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="style.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="slick.css" />
+  <link rel="stylesheet" type="text/css" href="slick-theme.css" />
+  <link rel="stylesheet" type="text/css" href="input-group.css" />
+</head>
+
+<body ng-controller="IndexController as vm">
+
+  <div style="height:120px; background:none;">
+
+  </div>
+
+  <div style="display:flex; justify-content:center;">
+
+    <div class="col-xs-4" style="height:340px; border: 1px solid lightgray; box-shadow: 0 0 5px lightgray;">
+
+      <form method="post" style="text-align:center;">
+        <div class="login-title" style="margin-bottom:15px; margin-top:30px;">
+          LOGIN
+        </div>
+        <div style="margin-bottom:15px;">
+          <input id="id" class="login-inputbox form-control" style="height: 40px;" type="text" placeholder="ID">
+        </div>
+        <div style="margin-bottom:20px;">
+          <input id="pw" class="login-inputbox form-control" style="height: 40px;" type="password" placeholder="Password">
+        </div>
+        <button class="login-button" style="margin-bottom:5px;" ng-click="vm.login()" ng-dblclick="false"> Login </button>
+        <div class="login-addition" style="margin-bottom:30px;">
+          <span>Forgot Password ?</span>
+        </div>
+        <div class="login-addition" style="width:100%; text-align:center;">
+          <span>Create an account ?</span>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+
+  <div style="display:flex; justify-content:center; margin-top:60px;">
+    <img src="flag.jpg" width="150" height="150" alt="Logo" />
+  </div>
+
+
+</body>
+
+</html>

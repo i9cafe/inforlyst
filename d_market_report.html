@@ -1,0 +1,254 @@
+<html lang="ko" ng-app="inforlyst">
+
+<head>
+  <meta charset="utf-8" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+  <title> Inforlyst </title>
+  <script src="angular.js"></script>
+  <script src="angular-route.js"></script>
+  <script src="ui-bootstrap-tpls-0.10.0.min.js"></script>
+  <script src="app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="slick.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="style.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="slick.css" />
+  <link rel="stylesheet" type="text/css" href="slick-theme.css" />
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" type="text/css" href="input-group.css" />
+
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+
+
+</head>
+
+<body ng-controller="CustomerController as vm">
+
+  <div class="topnav" style="position:fixed; width:100%; left:70; z-index:100;">
+    <span id="openNav" class="openbtn" ng-click="vm.openNav()" ng-dblclick="false" style="height: 73px; position:fixed; left:0;"> &#9776; </span>
+    <div style="height: 73px; display:flex; justify-content:center;">
+      <div id="search-group" class="col-xs-5" style="margin-left:-8%;">
+        <div class="input-group search-container">
+          <input type="text" class="form-control" placeholder="Search.." name="search">
+          <div class="input-group-append">
+            <span class="input-group-text" ng-click="vm.moveTosearchResult()" ng-dblclick="false"><i class="fa fa-search iconsFlap"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none; z-index:101;" id="mySidebar">
+    <button class="w3-bar-item w3-button w3-large" style="height:73px; line-height:57px;" ng-click="vm.closeNav()" ng-dblclick="false">Close <span style="float:right;">&times;</span></button>
+    <a href="main.html" class="w3-bar-item w3-button" style="height:73px; line-height:57px;">Link 1 - Home</a>
+    <a href="#" class="w3-bar-item w3-button" style="height:73px; line-height:57px;">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button" style="height:73px; line-height:57px;">Link 3</a>
+    <a href="index.html" class="w3-bar-item w3-button" style="height:73px; line-height:57px;"><i class="fa fw fa-sign-out" style="margin-right:3%;"></i> Logout </a>
+  </div>
+
+  <div id="main">
+
+    <div style="height:73px; background:none;">
+    </div>
+
+    <div style="height:4000px; border: 1px solid white;">
+
+      <div class="col-xs-9">
+        <div class="customer-name-box">
+          <b> Market Report </b>
+        </div>
+      </div>
+
+      <div class="col-xs-4">
+
+        <div style="height:20px;">
+
+        </div>
+
+        <!-- <div>
+          <div class="customer-info-box">
+            <div class="interests-title"> Interests </div>
+          </div>
+          <div class="customer-info-box">
+            <div class="interests-title"> Key Word </div>
+          </div>
+          <div class="customer-info-box">
+            <div class="interests-title"> Category </div>
+          </div>
+          <div class="customer-info-box">
+            <div class="interests-title"> Country </div>
+          </div>
+          <div class="customer-info-box">
+            <div class="interests-title"> Language </div>
+          </div>
+
+        </div> -->
+
+      </div>
+
+      <div class="col-xs-12" style="margin-top:0px;">
+        <!-- write code here -->
+        <div style="margin-top:3em; margin-bottom:5em;">
+          <h2><b> 시장 및 국가 </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:100px;" disabled> 국내 식품 산업 </textarea>
+        </div>
+
+        <div style="margin-top:3em; margin-bottom:5em;">
+          <h2><b> 시장 규모(필수) </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:100px;" disabled> 2017년 기준 음식료품제조업 89조 7179억 </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 시장 전망(필수) </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:100px;" disabled> 긍정적(긍정적은 빨강, 중립은 검은색, 부정적은 파랑색: 항목 선택 가능) </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 시장 설명에서 포함된 주요 시장 언어 정의(최소 3개 필수) </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:200px;" disabled> (Citation 필수)
+
+HMR: 약자는 Home meal replacement로 간편하게 요리할 수 있도록 제조, 가공 및 포장된 완전 혹은 반조리 형태의 제품을 의미합니다.
+
+SKU: 약자는 Stock keeping unit로 상품 관리, 재고 관리를 위한 최소 분류 단위로 개별적인 상품에 대해 재고 관리 목적으로 추적이 용이하도록 하기 위해 사용되는 식별 관리 코드를 의미한다.
+
+영업레버리지: 기업이 영업활동시 발생하는 영업비용을 고정비와 변동비로 분류했을 때, 영업비용 내의 고정비 부담 정도를 의미한다.
+
+ </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 시장 참여 핵심 기업들, 핵심 제품들과 총 매출액 명시(최근 사업보고서 기준 예를 들어서 2019년) </b></h2>
+          <table>
+            <tr>
+              <th>기업명</th>
+              <th>핵심 제품</th>
+              <th>매출액(막대그래프로 그리는 거)</th>
+            </tr>
+            <tr>
+              <td>CJ 제일제당</td>
+              <td>(HMR, 비비고)</td>
+              <td>5조 1천억</td>
+            </tr>
+            <tr>
+              <td>오뚜기</td>
+              <td>(hmr, 라면)</td>
+              <td>2조 3천억</td>
+            </tr>
+            <tr>
+              <td>농심</td>
+              <td>(hmr, 라면)</td>
+              <td>1조 2천억</td>
+            </tr>
+            <tr>
+              <td>풀무원</td>
+              <td>(hmr, 두부)</td>
+              <td>1조 1천억</td>
+            </tr>
+            <tr>
+              <td>오리온</td>
+              <td>(제과류)</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>빙그레</td>
+              <td>빙과류</td>
+              <td></td>
+            </tr>
+
+          </table>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 핵심 키워드(필수 추가됨)(검색이랑 연관 시키는 방식 이유는 검색을 더 세부적으로 하기 위해. 그럼 리서치도 더 구체적으로 할 수 있다) </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:100px;" disabled> HMR </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 인용할 뉴스 + 참고 자료 최소 2개 이상 사용 및 첨부 </b></h2>
+          <div style="resize:none; overflow:auto; width:100%; height:200px; background:#efefef4d; padding: 2px 0px 0px 2px; border: 1px solid rgba(118, 118, 118, 0.3);" disabled>
+            ‘CJ 비비고 만두, 올해 매출 1조 돌파… 전 세계에 k-만두 각인’<br />
+            링크: <a
+              href="https://cjnews.cj.net/cj-%EB%B9%84%EB%B9%84%EA%B3%A0-%EB%A7%8C%EB%91%90-%EC%98%AC%ED%95%B4-%EB%A7%A4%EC%B6%9C-1%EC%A1%B0-%EB%8F%8C%ED%8C%8C-%EC%A0%84-%EC%84%B8%EA%B3%84%EC%97%90-k-%EB%A7%8C%EB%91%90/">https://cjnews.cj.net/cj-%EB%B9%84%EB%B9%84%EA%B3%A0-%EB%A7%8C%EB%91%90-%EC%98%AC%ED%95%B4-%EB%A7%A4%EC%B6%9C-1%EC%A1%B0-%EB%8F%8C%ED%8C%8C-%EC%A0%84-%EC%84%B8%EA%B3%84%EC%97%90-k-%EB%A7%8C%EB%91%90/</a><br /><br />
+            ‘1인가구 30% 돌파… 20대가 가장 많이 늘었다’<br />
+            링크: <a href="https://www.chosun.com/site/data/html_dir/2020/08/29/2020082900184.html">https://www.chosun.com/site/data/html_dir/2020/08/29/2020082900184.html</a><br />
+
+          </div>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 부가설명(최소 4개의 문단) </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:100px;" disabled>  </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 1인가구가 증가한다는 것은, HMR 수요 증가를 의미 </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:200px;"
+            disabled> 2019년 인구주택 총 조사에 따르면 지난 해 우리나라 1인 가구 수는 전체 가구 수의 30% 비중 이상을 차지하는 것으로 집계됐습니다. 1인 가구가 증가하게 된다면 그만큼 가구 내 식문화도 많이 변할 것이라는 점을 시사합니다. 우선 1인 가구들은 일반적인 3인 이상의 가구에 비해 건강보다는 간편함을 더 추구할 것입니다. 그 이유는 직장을 다니면서 밥을 차릴 시간도 감소하기 때문이며 대신 차려줄 사람도 없습니다. 물론 이로 인해 집에서 밥을 먹는 빈도도 줄어들 수 있고 오히려 외식을 더 많이 할 수 있으나 문제는 외식은 가격 측면에서 상당히 부담스러울 수 있다는 것입니다. 본론으로 돌아와서, 1인 가구는 간편한 요리를 추구하기 때문에 최근에 HMR 제품 수요가 증가하고 있습니다. 그러나 1인 가구 수의 증가는 갑작스럽게 나타난 현상은 아닙니다. 그렇다면 왜 갑자기 hmr에 모든 사람들이 주목하게 됐을까요? 그 이유는 바로 사람들의 수요를 충분히 충족시킬 만큼 간편식의 쿼리티도 높아졌기 때문입니다(이 점에 대해서는 다음 문단에서 더 자세히 설명할 것입니다). 즉 1인 가구의 간편식에 대한 총 수요는 증가하고 있었으며 기술 발달로 인해 이러한 니즈들이 결국 충족됐습니다. 앞으로도 간편식의 퀄리티는 더 발전할 것으로 기대되며 다양한 요인들에 의해 1인 가구 비중도 더욱 더 높아질 것으로 보입니다. 결국 이는 식품 시장의 지속적인 성장으로 이어질 것입니다. </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 식품 기업들의 R&D 지출과 M&A가 급격히 증가했다 </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:200px;"
+            disabled> 지난해 cj그룹은 연구개발비에만 1000억 이상을 투자했고 이외에도 롯데칠성과 다른 식품 기업들도 제품 퀄리티를 높이기 위해 더 많은 투자를 진행했습니다. 기존에는 식품 기업들이 투자를 꺼려했으며 그 이유는 판매가 잘되는 제품을 더욱 더 홍보하는 것이 기업의 수익성 측면에서 훨씬 더 유리했기 때문입니다. 그러나 모든 기업들이 이러한 추세로 가다 보니까 제품 품목은 줄어들고 소비자들은 새로운 제품을 원했으나 발견할 수 없었기 때문에 전반적인 식품시장 수요가 점차 하락하게 됐습니다. 시장 규모가 점차 하락하자 식품 시장에 종사하는 기업들은 새로운 제품과 더 쿼리티가 좋은 제품을 출시해야 될 유인이 생겼으며 이로 인해 대부분이 투자를 적극적으로 하는 스탠스를 취하게 됐습니다. 연구개발 이외에도 CJ제일제당은 미국 가공식품 회사인 쉬완스를 1조원 이상의 규모로 인수하기 시작했고 이외에도 신세계푸드 또한 미국 법인 장터코퍼레이션을 121억에 인수하기 시작했습니다. 이러한 인수 작전은 단순히 기업 규모의 확장으로 생각하면 안되며 기술 확보 측면에서 이러한 상황들을 바라봐야 된다 생각합니다. 이와 같은 전반적인 추세는 식품 시장에서 제품 퀄리티를 높였으며 소비자들의 만족도도 동시에 상승하게 됐습니다. 덕분에 시장의 사이클은 다시 성장주기로 변했고 지금부터는 식품 산업 내에서 HMR 제품 위주로 ‘매출 경쟁’을 시작할 것으로 보입니다. </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 국내 기업의 국내 판매보다 해외 수출에 주목해야 된다. </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:200px;"
+            disabled> 2020년/12월 21일에 cj제일제당의 자체 브랜드인 비비고 만두가 만두 판매로만 매출 1조를 달성했다는 뉴스가 보도됐습니다. 여기서 주목해야 될 점은 매출 규모가 아닌 어디에서 이 매출의 과반수가 발생했는지 입니다. 1조 중 4700억 이상이 미국에서 발생했고 이 외에도 유럽 및 중국에서도 각각 1000억 이상의 매출이 발생했습니다. 즉 한국 식품들의 퀄리티가 높아지자 국내뿐만이 아니라 외국에서도 국산 식품에 대한 수요가 증가하게 됐습니다. 우연인지는 모르겠지만 코로나바이러스에 의해 HMR 수요가 전세계적으로 증가하게 됐고 이외에도 한국 콘텐츠(영화 기생충 등)가 전 세계에서 주목 받게 되자 한국 제품들의 이미지도 개선됐던 점도 국내 제품들에 긍정적으로 작용했습니다. 이러한 트렌드는 단기로 머무를 것 같지는 않으며 그 이유는 국내 HMR 제품 퀄리티가 ‘상승했기’ 때문이고 때마침 대부분의 기업들이 투자를 늘리는 시기에 이러한 트렌드가 발생했습니다. 그러므로 대부분의 국내 식품 기업들은 성장하기 위해 기업 구조를 전환했고 이 것이 외부 변수와 맞아 떨어져서 소비자들의 만족도는 향후에도 지속적으로 개선될 것입니다. 또한 유럽과 중국에서 고령화가 증가하며 이러한 지역에서도 1인 가구의 규모가 급격히 증가할 것으로 보이기에 글로벌 hmr 시장도 매우 빠르게 성장할 것입니다. 미래에는 중식집과 일식집이 있는 것처럼 한식집도 전 세계 각국에서 찾아볼 수 있을 정도로 한국 식품 시장이 커질 것으로 전망합니다. </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 성장은 좋으나 탄탄한 성장을 추구하는 기업이 살아남을 것이다 </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:200px;"
+            disabled> 현재 식품 시장은 성장 추세에 진입했으나 성장 추세의 특징은 엄청난 레버리지가 동반된다는 것입니다. 실제로 대부분의 국내 식품 기업들의 부채비율은 최근 2년간 급격히 증가했으며 시장 특성상 영업 레버리지가 높기 때문에 판매량에 모든 기업들은 목숨을 걸고 있는 상황입니다. 영업 레버리지가 높다는 것은 역으로 말하면 초기에 투입되는 자본이 많다는 것을 의미하기 때문에 이러한 투자를 위해서는 기업들이 사채를 발행하거나 차입을 할 수 밖에 없습니다. 인수합병을 위해서도 은행에서 차입을 해야 되고 이로 인해 이자비용부담은 증가하게 될 것이기에 판매량의 엄청난 증가로 이익이 증가하지 않는 이상 기업이 재무구조 관리를 하지 않는다면 지속적으로 성장할 수는 없습니다. 또한 현재 모든 식품 기업들은 새로운 제품들을 출시하면서 망하는 제품 종류들도 많이 발생하고 있습니다. 이러한 현상은 전부 다 각 기업의 재무상태표에 손실로 기록되고 있고 이는 기업의 이익에 매우 치명적인 타격을 입히고 있습니다. 실제로 대형 식품사들은 이러한 점을 인지하면서 현재 SKU 구조조정을 진행하며 반응이 좋은 제품들만 남겨두는 전략을 진행하고 있습니다. 일정 시기를 잡고 이 기간 내에 인기를 끌지 못하는 제품들은 더 이상 생산하지 않고 이로 인해 남은 기계 장비들로 판매가 잘되는 제품들 위주로만 공급하는 전략입니다. 그러나 일부의 기업들만 현재 이러한 전략을 사용하고 있고 성장에 욕심이 많은 기업들은 과도하게 사채를 발행하며 판매량에만 주목하고 있습니다. 향후에 이러한 기업들의 욕심이 문제로 이어지면서 시장에서 생존한 기업들의 수익성이 대폭 증가하는 현상이 예상됩니다. </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 종합적인 생각(필수) </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:200px;"
+            disabled> 현재 식품 시장은 상상이상의 수준으로 성장하고 있고 이번 해에 평균적으로 식품 기업들의 매출은 20% 이상 증가했습니다. 즉 엄청나게 매력적인 시장인 것은 사실이며 심지어 삼성과 같이 전혀 연관 없는 대기업들 조차도 hmr 시장에 뛰어들고 있습니다. 이러한 상황에서 경쟁 심화로 전반적인 이익이 감소할 수는 있으나 장기적으로 본다면 시장 자체의 규모는 엄청나게 성장할 것입니다. 식품 시장에서 경쟁 우위에 있는 참가자를 파악하기 위해서는 매출 성장률보다는 매출 규모에 집중해야 됩니다. 성장 사이클에서는 한 기업의 시장 점유율이 더 중요하기 때문에 개별 기업의 매출 성장률보다는 매출의 절대적인 수치에 주목하며 시장 구조를 파악하는 것이 좋을 것으로 보입니다. </textarea>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div style="border-top:1px solid lightgray;">
+    </div>
+
+
+    <div style="height:1000px; background:gray; opacity:0.1;">
+
+
+    </div>
+
+
+  </div>
+
+
+
+
+
+</body>
+
+</html>

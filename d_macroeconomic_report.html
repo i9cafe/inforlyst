@@ -1,0 +1,210 @@
+<html lang="ko" ng-app="inforlyst">
+
+<head>
+  <meta charset="utf-8" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+  <title> Inforlyst </title>
+  <script src="angular.js"></script>
+  <script src="angular-route.js"></script>
+  <script src="ui-bootstrap-tpls-0.10.0.min.js"></script>
+  <script src="app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="slick.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="style.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="slick.css" />
+  <link rel="stylesheet" type="text/css" href="slick-theme.css" />
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" type="text/css" href="input-group.css" />
+
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+
+
+</head>
+
+<body ng-controller="CustomerController as vm">
+
+  <div class="topnav" style="position:fixed; width:100%; left:70; z-index:100;">
+    <span id="openNav" class="openbtn" ng-click="vm.openNav()" ng-dblclick="false" style="height: 73px; position:fixed; left:0;"> &#9776; </span>
+    <div style="height: 73px; display:flex; justify-content:center;">
+      <div id="search-group" class="col-xs-5" style="margin-left:-8%;">
+        <div class="input-group search-container">
+          <input type="text" class="form-control" placeholder="Search.." name="search">
+          <div class="input-group-append">
+            <span class="input-group-text" ng-click="vm.moveTosearchResult()" ng-dblclick="false"><i class="fa fa-search iconsFlap"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none; z-index:101;" id="mySidebar">
+    <button class="w3-bar-item w3-button w3-large" style="height:73px; line-height:57px;" ng-click="vm.closeNav()" ng-dblclick="false">Close <span style="float:right;">&times;</span></button>
+    <a href="main.html" class="w3-bar-item w3-button" style="height:73px; line-height:57px;">Link 1 - Home</a>
+    <a href="#" class="w3-bar-item w3-button" style="height:73px; line-height:57px;">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button" style="height:73px; line-height:57px;">Link 3</a>
+    <a href="index.html" class="w3-bar-item w3-button" style="height:73px; line-height:57px;"><i class="fa fw fa-sign-out" style="margin-right:3%;"></i> Logout </a>
+  </div>
+
+  <div id="main">
+
+    <div style="height:73px; background:none;">
+    </div>
+
+    <div style="height:4300px; border: 1px solid white;">
+
+      <div class="col-xs-9">
+        <div class="customer-name-box">
+          <b> Macroeconomic Report </b>
+        </div>
+      </div>
+
+      <div class="col-xs-4">
+
+        <div style="height:20px;">
+
+        </div>
+
+        <!-- <div>
+          <div class="customer-info-box">
+            <div class="interests-title"> Interests </div>
+          </div>
+          <div class="customer-info-box">
+            <div class="interests-title"> Key Word </div>
+          </div>
+          <div class="customer-info-box">
+            <div class="interests-title"> Category </div>
+          </div>
+          <div class="customer-info-box">
+            <div class="interests-title"> Country </div>
+          </div>
+          <div class="customer-info-box">
+            <div class="interests-title"> Language </div>
+          </div>
+
+        </div> -->
+
+      </div>
+
+      <div class="col-xs-12" style="margin-top:0px;">
+        <!-- write code here -->
+        <div style="margin-top:3em; margin-bottom:5em;">
+          <h2><b> 거시변수 </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:100px;" disabled> 인플레이션 </textarea>
+        </div>
+
+        <div style="margin-top:3em; margin-bottom:5em;">
+          <h2><b> 지역(필수) </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:100px;" disabled> 미국 </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 주목해야 될 핵심 변수들(최소 2개) </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:100px;" disabled> 필수 제품 가격 동향, 미국정부 정책 </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 거시변수 설명에서 포함된 주요 전문용어 정의(최소 2개 필수)(인용했으면 참고 문한 반드시 표시) </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:200px;" disabled>초인플레이션: 물가상승이 통상적으로 전문가들이 생각하는 수준 이상으로 치솟은 상황이며 물가가 폭등하는 현상. 현재 베네수엘라가 이로 인해 피해를 보고 있으며 총수요가 총공급을 압도하는 상황.
+
+양적완화: 중앙은행이 국채를 지속적으로 매입하면서 장기금리를 낮게 유지하는 전략. 중앙은행이 국채를 사준다면 채권 매수 수요가 증가하면서 적은 비용, 즉 저금리로 국채를 발행할 수 있게 된다. 주로 경제가 악화된 상황에서 재정지원이 많이 필요하고 채권 시장이 어려울 때 중앙은행이 사용하는 전략.
+
+MMT 이론: 미국 민주당에서 주장하는 전반적인 통화 및 재정정책의 새로운 패러다임. 중앙은행의 역할은 단순히 정부가 돈이 필요할 때 돈을 발행해주는 것을 전재로 두고 있다. 정부는 이 돈을 국가 경제에 투입한 뒤 경제를 육성하고 경제가 과열시기에 진입하기 전에 세금을 통해 유동성을 다시 회수하는 방식. 결국 세금이 핵심 전략.
+ </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 핵심 키워드(필수 추가됨)(검색이랑 연관 시키는 방식 이유는 검색을 더 세부적으로 하기 위해. 그럼 리서치도 더 구체적으로 할 수 있다) </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:100px;" disabled> HMR </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 인용할 뉴스 혹은 참고 자료 최소 2개 이상 사용 및 첨부 </b></h2>
+          <div style="resize:none; overflow:auto; width:100%; height:900px; background:#efefef4d; padding: 2px 0px 0px 2px; border: 1px solid rgba(118, 118, 118, 0.3);" disabled>
+            ‘국제 곡물가격 상승… “환율 하락에 국내가격 영향 아직은 제한적”,’이데일리’,’이진철 기자’, 접속일: 2021-01-15, <br /><br />
+            링크: <a href="https://www.edaily.co.kr/news/read?newsId=03319366625999832&mediaCodeNo=257">https://www.edaily.co.kr/news/read?newsId=03319366625999832&mediaCodeNo=257</a> <br /><br />
+            미국 물가 상승률 추이 <br /><br />
+            차트 조사 기간: 1960년 ~ 2020년 <br /><br />
+            출처: 사이트 링크: <a href="https://www.macrotrends.net/countries/USA/united-states/inflation-rate-cpi">https://www.macrotrends.net/countries/USA/united-states/inflation-rate-cpi</a> <br /><br /><br />
+            <img src="chart01.png" alt="chart">
+          </div>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 부가설명(최소 4개의 문단) </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:100px;" disabled>  </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 물가 상승은 수요가 공급을 초과할 때만 발생하게 된다 </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:200px;" disabled> 현재 다양한 전문가들이 나와서 디플레이션과 인플레이션에 대한 논의를 하면서 대중을 혼돈에 빠뜨리고 있습니다. 화폐 가치의 훼손, 정부의 지나친 유동성, 양적완화 등 어려운 금융 용어를 사용하면서 서로 인플레이션이 온다 아니면 디플레이션을 걱정해야 된다 주장하고 있습니다. 일반 대중들은 무엇이 좋은지 혹은 나쁜지 알 수 없으니까 처음에는 전문가들의 말에 귀를 기울였는데 시간이 지날수록 관심을 잃게 됐습니다. 그래서 저는 일반 사람들이 쉽게, 이해하도록 인플레이션과 디플레이션이 무엇인지를 이번 리포트를 통해서 작성하려고 합니다.
+인플레이션, 즉 물가 상승은 수요가 공급을 초과할 때 나타나는 상황입니다. 예를 들어서 바나나가 한 개 있는데 처음에는 3명이 이 바나나를 사려고 모였습니다. 그렇다면 바나나의 가격은 이 3명중에서 가장 높은 가격을 지급하려는 사람에 의해 결정될 것입니다. 그러나 만약 3명이 아니라 100명이 한 개의 바나나를 구매하려고 한다면 당연히 바나나 가격은 상승할 것입니다. 즉 수요가 공급보다 높아야 제품 가격이 상승합니다. 반대로, 바나나가 3개 있고 구매할 사람이 1명이라면 바나나의 가격은 하락할 수 밖에 없습니다. 이 것이 바로 디플레이션과 인플레이션의 정의 입니다. 인플레이션은 가격 ‘인’상 그리고 디플레이션은 가격이 ‘디’스카운트 될 때 나타난다 생각하면 됩니다. 그렇다면 이제 무슨 요인이 수요가 공급을 초과하도록 만드는지만 알게 된다면 인플레이션의 발생 여부를 뚜렷하게 알 수 있습니다. 두 가지 핵심 원인이 있는데요, 우선 공급이 하락하는 상황에서 수요가 공급을 초과할 수 있고, 두번째 시나리오는 수요가 급격히 증가하면서 공급을 넘는 것입니다. 공급이 하락하는 원인은 계절성 요인, 천재지변, 무역전쟁 등 쉽게 통제할 수 있는 요인은 아닙니다. 또한 공급을 늘리기 위해서도 공장을 지어야 되는데 시간이 오래 걸리기 때문에 공급측면에서는 정확하게 답할 수는 없습니다. 그러나 현재 코로나에 의해 무역 프로세스가 지연되고 폐업한 기업들도 대거 나타나면서 공급이 소폭 하락했다 할 수는 있습니다. 수요의 경우에는 개인이 지불할 금액이기 때문에 이는 고객의 소비여력, 즉 경제적 상황과 소비심리에 의해 결정됩니다. 소비심리는 돈이 있더라도 구매를 할 의향이 있는지 입니다. 현재 각국 정부에서 재난지원금을 지급하며 개인들이 돈이 생기게 됐으나 문제는 아직 소비심리가 강화되지 않았다는 것입니다. 그 이유는 소비심리가 강화되기 위해서는 팬데믹과 같은 불확실성이 해소돼야 하기 때문입니다. 그래서 현재 공급이 하락하고 있지만 수요가 대폭 증가하지는 않아서 인플레이션이 반드시 나타난다 할 수는 없어 보입니다.
+ </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> ‘올바른’ 물가 상승은 2%, 초인플레이션은 그 이상 </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:200px;"
+            disabled> 미국의 60년 물가 차트를 보시면 1990년에서 2020년 사이에서는 (2008년 제외: 금융위기) 물가가 2% 수준에서 머무르고 있습니다. 즉 수요가 공급을 초과했으나 안정적인 수준에서 이 것이 도달됐다는 것입니다. 만약 수요가 공급을 압도적으로 초과한다면, 이를 초인플레이션이라 부르는데 이러한 상황에서는 제품/서비스 가격이 지나치게 높아지면서 사람들이 제품을 구매할 수 없게 되는 모순이 나타납니다. 즉 수요가 공급을 압도적으로 초과하지만 총 수요가 감소하는 이상한 현상인데 이는 사실 수요에 대해 더 깊이 생각하면 원인이 나옵니다. 수요는 소비여력과 소비심리가 결정합니다. 제품 가격이 인상된 이유는 이 둘 중에서는 한 가지 혹은 둘 다 폭등해서 나타나는 현상입니다. 초인플레이션 얘기를 할 때 혹시 화폐 가치의 손상에 대해 들어보셨나요? 화폐 가치의 손상은 화폐의 공급이 지나치게 많아져서 돈의 실질 가치, 즉 구매력이 하락한다는 것입니다. 한 줄로 요약하자면, 돈이 지나치게 많아서 실물 가격을 높이는 상황입니다. 그러므로 초반에는 수요가 소비여력과 소비심리가 강화돼서 인플레이션이 발생하지만 나중에는 가격이 높아지면서 소비심리가 악화되며 소비심리가 하락할 수 있지만 소비여력은 국민들이 돈이 많기 때문에 높은 수준에 머물게 됩니다. 즉 이로 인해 총수요는 높게 유지되며 초인플레이션 사이클은 결국 ‘돈의 힘’으로 발생하게 됩니다. 그러나 물가가 너무 높아져서 하위계층들은 엄청난 피해를 볼 수 밖에 없고 양극화도 엄청 심해지는 상황이 발생합니다. 돈이 많아져서 수요가 공급을 압도한다면 제품 가격이 지나치게 치솟고 이 것이 초인플레이션을 만들어 냅니다. 그렇다면 사람들의 금전적인 여력을 엄청난 속도로 높이는 방식은 무엇일까? 바로 시중에 중앙은행이 유동성을 공급할 때(양적완화) 모두가 ‘돈’이 많아지게 되는 상황입니다. 즉 일반적인 상황에서는 초인플레이션이 나타나기 어려워지기 때문에 이 것을 ‘화폐적 현상’이라 사람들이 부릅니다. 일반적인 인플레이션은 수요가 공급을 뛰어넘기 때문에 기업들이 이러한 초과수요를 확보하기 위해 지속적으로 성장하면서 경제가 전반적으로 상승할 수 있지만 과도하게 수요가 공급을 초과한다면 이는 공급자들이 대응을 할 수 없는 영역으로 가면서 경제가 오히려 심하게 악화됩니다. 그 이유는 공급은 생산 비탄력적이기(쉽게 생산량을 조율할 수 없다) 때문입니다. </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 물가 상승을 확인하기 위해서는 필수 제품에 주목. 특히 곡물가 </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:200px;"
+            disabled> 물가 상승 신호를 확인하기 위해서는 필수품의 가격 동향을 보면 쉽게 판단할 수 있습니다. 그 이유는 필수품에 대한 소비심리는 대폭으로 악화될 수 없기에 필수품에 대한 수요는 오로지 소비여력에 의존하기 때문입니다. 소비여력이 강화된다는 것은 결국 사람들의 자금 사정이 좋아지고 있다는 것입니다. 그러므로 공급 이상으로 수요가 증가하게 되면서 가격상승을 목격할 수 있고 이러한 원재료의 가격상승은 전반적인 기업들의 비용을 증가시켜 기업들이 제품/서비스의 가격을 상향조절 할 것입니다. 이 것이 물가 상승의 시작이라고 볼 수 있습니다. 실제로 위에 나와있는 뉴스를 본다면 공급요인도 작용해서 곡물가격이 급격히 증가하고 있다는 것을 볼 수 있습니다. 물론 공급차질이 큰 영향을 끼쳤지만 이러한 트렌드가 지속된다면 결국 초과수요에 의한 물가 상승이 나타날 것이고 이는 지속될 가능성이 높습니다. 현재 각국 정부가 유동성을 공급하기 시작해서 소비여력은 강화되고 있어며 현 상황을 매우 주의 깊게 지켜봐야 된다 생각합니다. 이러한 상황에서 팬데믹이 해소가 된다면 소비심리 강화에 의해 인플레이션이 급격히 나타날 수 밖에(중기적, 즉 1년 이후에) 없을 것입니다. </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 미국 정부의 물가 상승 대응은 MMT 방식일 것 </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:200px;"
+            disabled> 그렇다면 이러한 급격한 물가 상승을 대응하기 위해 새로 발표된 정책들에 대해 한번 살펴봐야 될 것 같다 생각합니다. 현재 미국 민주당에서 자주 언급되는 주제인 MMT 이론이 있는데, 이는 쉽게 말해서 시중에 있는 유동성을 회수하기 위해 세금을 사용하는 전략입니다. 경제가 과열인 환경에서 세율을 높여 세금을 확보한 뒤, 중앙은행에서 국채를 갚는 전략입니다. 문제는 지나친 세율의 조정은 아마도 사람들에게 엄청난 정치적 불확실성으로 이어지면서 서민들이 엄청난 불만을 표출하고 정부의 신뢰 또한 악화될 것입니다. 특히 미국에서 이러한 전략을 사용한다면 미중 패권 전쟁에서도 이는 글로벌 자금 유입에 심각한 타격을 입히며 미국의 입지를 악화시킬 것입니다. 그러므로 개인전인 생각으로 이는 인플레이션을 대응하는 방식은 아닌 것 같습니다. 정부가 국채를 발행해서 경제를 지원하는 것은 현재 몇 없는 대안이라 어쩔 수 없이 동의하지만 회수하는 전략은 부작용이 장점을 더 앞선 것으로 판단됩니다. 그러나 이번에 조 바이든이 대통령이 되면서 미국이 이러한 전략을 장기적으로 사용할 확률이 높아졌기에 앞으로 이 정책에 대해 더 주목해야 된다 생각합니다. 세율 조정은 국민들이 정부의 정책에 의도한 대로 반응한다면 괜찮은 전략이지만 부자들의 국적 포기현상이 나타난다면 경기가 또 다시 글로벌 디프레션으로 진입할 것입니다. </textarea>
+        </div>
+
+        <div style="margin-bottom:5em;">
+          <h2><b> 종합적인 생각(필수) </b></h2>
+          <textarea style="resize:none; overflow:auto; width:100%; height:200px;" disabled> 인플레이션은 단기에 나타나지 않을 것으로 보이지만 중기 즉 1년 이후에는 서서히 매우 매서운 속도로 확인될 것입니다. 인플레이션의 본격적인 시작을 확인하기 위해서는 곡물가격의 추세를 확인해야 되며 한번 인플레이션이 시작한다면 이를 멈추는 사이클도 매우 오래 지속될 것으로 보입니다. 또한 현 추세로 본다면 아마도 단순한 인플레이션보다 초인플레이션이 예상됩니다.
+출처는 출처 표시 버튼 옆에 누르면 출처를 바로 하단에 표시하도록 돼있다. 자동으로 출처 표시할 수 있게 된다면 좋을 듯.
+ </textarea>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="border-top:1px solid lightgray;">
+    </div>
+
+
+    <div style="height:1000px; background:gray; opacity:0.1;">
+
+
+    </div>
+
+
+  </div>
+
+
+
+
+
+</body>
+
+</html>

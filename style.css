@@ -1,0 +1,575 @@
+/* Add a black background color to the top navigation bar */
+.topnav {
+  background-color: rgb(233, 233, 233, 0.5);
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container span {
+  float: right;
+  height: 34px;
+  padding: 6px 10px;
+  margin-top: 25px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container span:hover {
+  background: #ccc;
+}
+
+.input-group-append:hover .iconsFlap {
+  animation: zigzahShake .5s;
+  animation-iteration-count: 1;
+}
+
+@keyframes zigzahShake {
+  0% {
+    transform: translate(-4px, -3px)
+  }
+
+  30% {
+    transform: translate(3px, -4px)
+  }
+
+  60% {
+    transform: translate(-3px, 2px)
+  }
+
+  90% {
+    transform: translate(2px, 3px)
+  }
+
+  100% {
+    transform: translate(0px, 0px)
+  }
+}
+
+/* side bar */
+.openbtn {
+  font-size: 31px;
+  cursor: pointer;
+  background-color: #ddd;
+  color: white;
+  padding: 12px 22px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #ccc;
+}
+
+/* world map */
+#Resorts a {
+  font-family: hind, sans-serif;
+}
+
+#Resorts a:hover path:first-child {
+  fill: #AFD7D6;
+}
+
+#Resorts a text {
+  visibility: hidden;
+  font-size: 36px;
+  text-decoration: underline;
+}
+
+#Resorts a:hover text {
+  visibility: visible;
+}
+
+#Resorts .resort {
+  fill: #D9D9D9;
+}
+
+#Resorts .geo-ind, #Resorts .title {
+  fill: #005a56;
+}
+
+#Resorts rect {
+  fill: transparent
+}
+
+/* slick cards slider */
+.slick-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+
+.slick-items {
+  width: 90%;
+}
+
+.slick-items .new {
+  cursor: pointer;
+  height: 200px;
+  background: lightgray;
+  padding: 2px;
+  margin: 2px;
+}
+
+.slick-items .new:hover {
+  background: silver;
+}
+
+.slick-arrow {
+  cursor: pointer;
+  position: absolute;
+  top: 30%;
+  width: auto;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  background: lightgray;
+  padding: 20px;
+}
+
+.slick-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slick-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #0d0925;
+  margin: 0 0 20px 0;
+}
+
+.slick-text {
+  font-size: 19px;
+  color: #4e4a67;
+  margin: 0 auto 30px auto;
+  line-height: 1.5em;
+  text-align: justify;
+}
+
+/* login input box */
+.login-title {
+  font-family: Georgia, serif;
+  font-size: 20px;
+}
+
+.login-inputbox {
+  width: 95%;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  color: gray;
+  font-size: 15px;
+  padding: 15px;
+  margin-left: 2.5%;
+}
+
+.login-button {
+  width: 95%;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  height: 50px;
+  background: gray;
+  /* #1a75ff; */
+  color: white;
+  font-size: 20px;
+}
+
+.login-button:hover {
+  background: lightgray;
+  /* #0052cc; */
+}
+
+.login-button:active {
+  background: gray;
+  /* #0052cc; */
+}
+
+.login-addition {
+  width: 97%;
+  text-align: right;
+  font-size: 15px;
+  color: gray;
+  /* #1a75ff; */
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.login-addition span:hover {
+  text-decoration: underline;
+}
+
+/* customer page */
+.interests-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #0d0925;
+  margin: 0 0 20px 0;
+  padding: 5px;
+}
+
+.customer-name-box {
+  height: 130px;
+  width: 100%;
+  padding: 20px;
+  font-size: 50px;
+}
+
+.customer-info-box {
+  height: 60px;
+  background: lightgray;
+  margin: 3px;
+}
+
+/*
+ modal
+*/
+.modal-fullscreen .modal-dialog {
+  width: 80%;
+  margin-top: 50px;
+}
+
+.read-more {
+  margin-top: 20px;
+  height: 50px;
+  border-radius: 30px;
+  background: lightgray;
+  border: none;
+  width: 200px;
+  font-size: 18px;
+  margin-left: 0%;
+  cursor: pointer;
+  line-height: 50px;
+  text-align: center;
+}
+
+.read-more:hover {
+  background: gray;
+}
+
+.modal-btn {
+  width: 100%;
+  height: 40px;
+  font-size: 20px;
+}
+
+.modal-btn:hover .iconsFlap {
+  animation: flap 0.7s;
+  animation-iteration-count: 1;
+}
+
+@keyframes flap {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(33deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(33deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/*
+ application tap
+*/
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+/* My Page - new application button*/
+.new-application {
+  text-align: center;
+  cursor: pointer;
+}
+
+.new-application:hover {
+  background: silver;
+}
+
+.new-application:active {
+  background: darkgray;
+}
+
+/* applaction - radio button */
+.application-category {
+  display: inline-block;
+  position: relative;
+  padding-left: 35px;
+  margin-right: 5em;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 23px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.application-category input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.application-category:hover input~.checkmark {
+  background-color: #ccc;
+}
+
+.application-category input:checked~.checkmark {
+  background-color: gray;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.application-category input:checked~.checkmark:after {
+  display: block;
+}
+
+.application-category .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+/* select box */
+/* The container must be positioned relative: */
+.custom-select {
+  position: relative;
+  font-family: Arial;
+  font-size: 20px;
+}
+
+.custom-select select {
+  display: none;
+  /*hide original SELECT element: */
+}
+
+.select-selected {
+  background-color: #eee;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div, .select-selected {
+  color: black;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: #eee;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* search result page */
+.search-keyword {
+  display: inline-block;
+  margin-top: 20px;
+  height: 40px;
+  border-radius: 30px;
+  background: lightgray;
+  border: none;
+  width: 150px;
+  font-size: 17px;
+  margin-left: 0%;
+  line-height: 40px;
+  text-align: center;
+}
+
+/* customer-mypage graph */
+.graph-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 380px;
+}
+
+.graph-area .rejected {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 160px;
+}
+
+.graph-area .steps {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 160px;
+}
+
+.graph-area .rejected .label {
+  width: 100%;
+  height: 50px;
+}
+
+.graph-area .rejected .graph {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.graph-area .rejected .graph .background-ball {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: lightgray;
+  cursor: pointer;
+}
+
+.graph-area .rejected .graph .background-ball:hover {
+  background: gray;
+  color: #eee;
+}
+
+.graph-area .steps .label {
+  width: 100%;
+  height: 50px;
+}
+
+.graph-area .steps .graph {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.graph-area .steps .graph .background-ball {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: lightgray;
+  cursor: pointer;
+}
+
+.graph-area .steps .graph .background-ball:hover {
+  background: gray;
+  color: #eee;
+}
+
+.graph-label-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #0d0925;
+  margin: 0 0 20px 0;
+  padding: 5px;
+  text-align: left;
+}
+
+#received:hover {
+  background: silver;
+}
